@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Hola Babobra lol</title>
+</head>
+
+<body>
+    <div class="contenido">
+        <div id="maquinaEscribir" style="color: white;"></div>
+
+        <div class="buttons">
+            <button onclick="cambiarImagen('https://images.squarespace-cdn.com/content/v1/57a2aeb1ff7c509ef76566c9/1580246160610-AF6NCVORUSWEFLXGCX9Q/ansioso.gif')">Good
+                :)</button>
+            <button onclick="cambiarImagen('https://i.makeagif.com/media/10-26-2015/j8K69r.gif')">Bad :(</button>
+            <button onclick="cambiarImagen('https://qph.cf2.quoracdn.net/main-qimg-e33b07be218a3bc76fa16976fbbf2f8a')">So So</button>
+        </div>
+
+        <div class="image">
+            <img id="imagenMostrada" src="" >
+            <h2 id="text" style="text-align: center;"></h2>
+        </div>
+    </div>
+
+
+    <script>
+
+        function cambiarImagen(nuevaSrc) {
+            // Obtén el elemento de la imagen por su ID
+            var imagen = document.getElementById('imagenMostrada');
+            let text = document.getElementById('text');
+
+
+            // Cambia el atributo src con la nueva URL de la imagen
+            imagen.src = nuevaSrc;
+            text.innerHTML = "It's Great"
+
+            if(nuevaSrc == 'https://i.makeagif.com/media/10-26-2015/j8K69r.gif'){
+                text.innerHTML = "Why Tell me :("
+            } else if(nuevaSrc == 'https://qph.cf2.quoracdn.net/main-qimg-e33b07be218a3bc76fa16976fbbf2f8a'){
+                text.innerHTML = 'MMM Okay'
+            }
+
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const texto = "Hi Barbora How was your day?.";
+            const velocidadEscritura = 50; // Velocidad en milisegundos
+
+            const maquinaEscribir = document.getElementById('maquinaEscribir');
+            let index = 0;
+
+            function escribir() {
+                maquinaEscribir.textContent += texto[index];
+                index++;
+
+                if (index < texto.length) {
+                    setTimeout(escribir, velocidadEscritura);
+                }
+            }
+
+            // Iniciar la escritura cuando la página cargue
+            setTimeout(escribir, velocidadEscritura);
+        });
+    </script>
+</body>
+
+</html>
